@@ -26,8 +26,6 @@ You should have received a copy of the GNU General Public License
 along with this plugin. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
-<?php
-
 if(!defined('ABSPATH') || defined('F4_TREE_VERSION')) exit;
 
 define('F4_TREE_VERSION', '1.0.2');
