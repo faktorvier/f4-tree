@@ -1,0 +1,113 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: F4 Tree\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 13:43+0000\n"
+"PO-Revision-Date: 2019-03-04 13:43+0000\n"
+"Last-Translator: Admin <dev@faktorvier.ch>\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.0; wp-5.1"
+
+#: Core/Hooks.php:73 Core/views/admin-settings.php:3
+msgid "F4 Post Tree settings"
+msgstr "F4 Post Tree Einstellungen"
+
+#. Name of the plugin
+#: Core/Hooks.php:74
+msgid "F4 Post Tree"
+msgstr "F4 Post Tree"
+
+#: Menu/Hooks.php:235
+msgid "Term: %term%"
+msgstr "Term: %term%"
+
+#: Update/Hooks.php:193
+msgid "An error occured. Please try again."
+msgstr "Es ist ein Fehler aufgetreten. Bitte versuch es erneut."
+
+#: Update/Hooks.php:198
+msgid "License successfully activated."
+msgstr "Lizenz erfolgreich aktiviert."
+
+#: Update/Hooks.php:203
+msgid "License successfully deactivated."
+msgstr "Lizenz erfolgreich deaktiviert."
+
+#: Update/Hooks.php:209
+msgid "The license you entered is invalid."
+msgstr "Die Lizenz die du angegeben hast ist ungültig."
+
+#: Update/Hooks.php:213
+msgid "You have reached the maximum limit for this license."
+msgstr "Du hast das Limit für diese Lizenz erreicht."
+
+#: Tree/Hooks.php:124
+msgid "Tree is loading..."
+msgstr "Seitenbaum wird geladen..."
+
+#: Tree/Hooks.php:125
+msgid "An error occured"
+msgstr "Es ist ein Fehler aufgetreten"
+
+#: Menu/views/menu-options.php:18
+msgid "Tree Settings"
+msgstr "Seitenbaum-Einstellungen"
+
+#: Menu/views/menu-options.php:23
+msgid "Show in tree"
+msgstr "Im Seitenbaum anzeigen"
+
+#: Menu/views/menu-options.php:47
+msgid "Display name"
+msgstr "Anzeigenamen"
+
+#: Menu/views/page-attributes-metabox.php:9
+msgid "Hide in menu"
+msgstr "In Menu verbergen"
+
+#: Update/views/admin-license-form.php:8
+msgid "License"
+msgstr "Lizenz"
+
+#: Update/views/admin-license-form.php:12
+msgid "You can find your license key in your order confirmation."
+msgstr "Sie finden Ihren Lizenzschlüssel in Ihrer Bestellbestätigung."
+
+#: Update/views/admin-license-form.php:28
+msgid "Item Purchase Code"
+msgstr "Item Purchase Code"
+
+#: Update/views/admin-license-form.php:33
+msgid "Activate license"
+msgstr "Lizenz aktivieren"
+
+#: Update/views/admin-license-form.php:47
+msgid "License key"
+msgstr "Lizenzschlüssel"
+
+#: Update/views/admin-license-form.php:53
+msgid "Deactivate license"
+msgstr "Lizenz deaktivieren"
+
+#: Tree/views/admin-settings-fields.php:9
+msgid "Enable tree for post types"
+msgstr "Seitenbaum für folgende Post Types aktivieren"
+
+#. Description of the plugin
+msgid "Adds a tree to the pages"
+msgstr "Fügt einen Seitenbaum zu den Seiten und Beiträgen hinzu"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.faktorvier.ch"
+msgstr "https://www.faktorvier.ch"
+
+#. Author of the plugin
+msgid "FAKTOR VIER"
+msgstr "FAKTOR VIER"
