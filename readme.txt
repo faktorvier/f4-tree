@@ -1,7 +1,7 @@
 === F4 Post Tree ===
 Contributors: faktorvier
 Donate link: https://www.faktorvier.ch/
-Tags: tree, drag-and-drop, pages, posts, backend, sidebar, treeview
+Tags: tree, drag-and-drop, pages, posts, hierarchy, backend, sidebar, treeview
 Requires at least: 4.4.0
 Tested up to: 5.1
 Requires PHP: 5.6
