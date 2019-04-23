@@ -238,7 +238,8 @@ class Hooks {
 				wp_cache_init();
 
 				$response = array(
-					'sample-permalink' => get_sample_permalink_html($post_id),
+					//'sample-permalink' => get_sample_permalink_html($post_id), // @todo: temporarily disabled because of manual change overwrite
+					'sample-permalink' => '',
 					'data' => Tree::get_tree($post_id, $post_type),
 					'timestamp' => $last_change_timestamp
 				);
