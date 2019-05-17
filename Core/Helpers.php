@@ -51,7 +51,7 @@ class Helpers {
 		}
 
 		$settings = wp_parse_args($settings, array(
-			'post-types' => array()
+			'post-types' => array('page', 'post')
 		));
 
 		$settings = apply_filters('F4/TREE/Tree/get_settings', $settings, $name);
