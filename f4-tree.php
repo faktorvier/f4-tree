@@ -4,7 +4,7 @@
 Plugin Name: F4 Post Tree
 Plugin URI: https://github.com/faktorvier/f4-tree
 Description: Adds a tree to the pages
-Version: 1.0.3
+Version: 1.0.4
 Author: FAKTOR VIER
 Author URI: https://www.faktorvier.ch
 License: GPLv2
