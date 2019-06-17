@@ -36,6 +36,11 @@ var F4_menutree = {
 			generateIds: true,
 			idPrefix: F4_menutree.nodeItemPrefix,
 
+			init: function() {
+				F4_menutree.tree = F4_menutree.$container.fancytree('getTree');
+				F4_menutree.startPoll();
+			},
+
 			// Translations
 			strings: {
 				loading: F4_tree_config.labels.loading,
@@ -74,9 +79,6 @@ var F4_menutree = {
 		};
 
 		F4_menutree.$container.fancytree(fancytreeConfig);
-
-		F4_menutree.tree = F4_menutree.$container.fancytree('getTree');
-		F4_menutree.startPoll();
 	};
 
 	window.onbeforeunload = function(e) {
