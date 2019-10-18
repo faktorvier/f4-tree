@@ -1,6 +1,6 @@
 === F4 Post Tree ===
 Contributors: faktorvier
-Donate link: https://www.faktorvier.ch/
+Donate link: https://www.faktorvier.ch/donate/
 Tags: tree, drag-and-drop, pages, posts, hierarchy, backend, sidebar, treeview
 Requires at least: 4.4.0
 Tested up to: 5.2
