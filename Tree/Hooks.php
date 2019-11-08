@@ -183,7 +183,7 @@ class Hooks {
 		foreach($posts_sorted as $post_index => $post_item) {
 			$wpdb->query(
 				$wpdb->prepare(
-					"UPDATE wp_posts SET post_parent = %d, menu_order = %d WHERE ID = %d",
+					"UPDATE $wpdb->posts SET post_parent = %d, menu_order = %d WHERE ID = %d",
 					$post_item['parent_post_id'],
 					$post_index,
 					$post_item['post_id']
