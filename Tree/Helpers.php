@@ -221,7 +221,7 @@ class Helpers {
 		// Add children if hierarchical
 		if(is_post_type_hierarchical($post_item->post_type)) {
 			$node_item['data']['allow_children'] = true;
-			$node_item['children'] = self::get_children('page', $post_item->ID, $current_post_id);
+			$node_item['children'] = self::get_children($post_item->post_type, $post_item->ID, $current_post_id);
 		}
 
 		$node_item = apply_filters('F4/TREE/Tree/get_post_tree_node', $node_item, $post_item, $current_post_id);
