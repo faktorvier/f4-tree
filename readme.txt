@@ -23,6 +23,8 @@ For every **post status** there is a **icon color**, so you can see if a post/pa
 
 You can also see if **someone else is currently editing a post**. In this case a small **lock-icon** appears in the tree.
 
+This Plugin is currently not compatible with Multisites. This feature will be added in the near future.
+
 = Usage =
 
 This plugin works out-of-the-box. By default, the tree will be displayed for both pages and posts. You can enable/disable the tree for both individually on the settings page (Settings -> F4 Post Tree).
@@ -40,6 +42,7 @@ This plugin works out-of-the-box. By default, the tree will be displayed for bot
 = Planned features =
 
 * Context menu for quick actions
+* Multisite compatibility
 * More tba
 
 = Upcoming PRO version =
