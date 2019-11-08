@@ -93,7 +93,8 @@ class Hooks {
 			array(
 				'default' => array(
 					'post-types' => array(
-						'page' => 1
+						'page' => '1',
+						'post' => '1'
 					),
 				)
 			)

@@ -28,7 +28,7 @@ class Helpers {
 		$enabled_screen_ids = array();
 
 		foreach($enabled_post_types as $post_type_name => $post_type_enabled) {
-			if($post_type_enabled) {
+			if($post_type_enabled == '1') {
 				$enabled_screen_ids[] = $post_type_name;
 				$enabled_screen_ids[] = 'edit-' . $post_type_name;
 			}
