@@ -5,7 +5,7 @@ Tags: tree, drag-and-drop, pages, posts, hierarchy, backend, sidebar, treeview
 Requires at least: 4.4.0
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,12 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 2. Hierarchical page tree while editing a page
 
 == Changelog ==
+
+= 1.0.6 =
+* Update compatibility for WordPress 5.3
+* Fix wpdb custom queries for more compatibility
+* Fix children tree function for custom post types
+* Fix tree output on unwanted pages
 
 = 1.0.5 =
 * Fix fancytree init bug
