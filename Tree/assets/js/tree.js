@@ -18,8 +18,8 @@ var F4_menutree = {
 (function($) {
 	// Methods
 	F4_menutree.init = function() {
-		F4_menutree.$container = $(F4_menutree.containerSelector);
-		F4_menutree.currentPostId = $('#post_ID').length ? $('#post_ID').val() : -1;
+		F4_menutree.$container = jQuery(F4_menutree.containerSelector);
+		F4_menutree.currentPostId = jQuery('#post_ID').length ? jQuery('#post_ID').val() : -1;
 		F4_menutree.pollLastChange = F4_menutree.$container.attr('data-tree-lastchange');
 		F4_menutree.currentPostType = F4_menutree.$container.attr('data-tree-post-type');
 		F4_menutree.currentLanguage = F4_menutree.$container.attr('data-tree-language');
@@ -92,7 +92,7 @@ var F4_menutree = {
 	F4_menutree.startPoll = function() {
 		F4_menutree.stopPoll();
 
-		F4_menutree.pollXHR = $.ajax({
+		F4_menutree.pollXHR = jQuery.ajax({
 			url: ajaxurl,
 			type: 'POST',
 			timeout: 300000, // 5 min
@@ -106,7 +106,7 @@ var F4_menutree = {
 			},
 			success: function(dataJSON) {
 				try {
-					var data = JSON.parse($.trim(dataJSON));
+					var data = JSON.parse(jQuery.trim(dataJSON));
 
 					F4_menutree.pollLastChange = data.timestamp;
 
@@ -156,7 +156,7 @@ var F4_menutree = {
 		if(F4_menutree.currentPostId != -1) {
 			for(var i in posts_sorted) {
 				if(posts_sorted[i].type == 'post' && F4_menutree.currentPostId == posts_sorted[i].post_id) {
-					$('#menu_order').val(i);
+					jQuery('#menu_order').val(i);
 					break;
 				}
 			}
@@ -164,8 +164,8 @@ var F4_menutree = {
 	}
 
 	F4_menutree.setSamplePermalink = function(samplePermalink) {
-		if($.trim(samplePermalink) !== '') {
-			$('#edit-slug-box').html(samplePermalink);
+		if(jQuery.trim(samplePermalink) !== '') {
+			jQuery('#edit-slug-box').html(samplePermalink);
 		}
 	}
 
@@ -281,7 +281,7 @@ var F4_menutree = {
 
 		var tooltipText = (data.node.tooltip) ? data.node.tooltip : data.node.title;
 
-		$(data.node.li).children('.fancytree-node').children('.fancytree-title').attr('title', tooltipText);
+		jQuery(data.node.li).children('.fancytree-node').children('.fancytree-title').attr('title', tooltipText);
 	};
 
 	F4_menutree.onDragStart = function(node, data) {
@@ -291,7 +291,7 @@ var F4_menutree = {
 	};
 
 	F4_menutree.onDraggableStart = function(event, ui) {
-		var $node = $(event.srcElement).parent().andSelf().filter('.node-disable-dnd');
+		var $node = jQuery(event.srcElement).parent().andSelf().filter('.node-disable-dnd');
 
 		return $node.length == 0;
 	};
@@ -354,7 +354,7 @@ var F4_menutree = {
 		F4_menutree.setMenuOrder(posts_sorted);
 
 		// Move post
-		$.ajax({
+		jQuery.ajax({
 			url: ajaxurl,
 			type: 'POST',
 			async: true,
