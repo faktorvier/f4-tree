@@ -70,13 +70,13 @@ class Hooks {
 	 */
 	public static function add_admin_styles() {
 		echo '<style>
-				.' . F4_EP_SLUG . '-submenu-item {
+				.' . F4_TREE_SLUG . '-submenu-item {
 				display: flex;
 				align-items: center;
 				white-space: nowrap;
 			}
 
-			.' . F4_EP_SLUG . '-submenu-item .f4-icon {
+			.' . F4_TREE_SLUG . '-submenu-item .f4-icon {
 				flex: 0 0 auto;
 				width: 1em;
 				height: 1em;
@@ -95,7 +95,7 @@ class Hooks {
 	 */
 	public static function register_options_page() {
 		$submenu_label = '
-		<span class="' . F4_EP_SLUG . '-submenu-item">
+		<span class="' . F4_TREE_SLUG . '-submenu-item">
 			<svg class="f4-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"width="75px" height="100px" viewBox="0 0 75 100">
 				<path d="M74.295,21.04c0,1.38-1.122,2.504-2.502,2.504H54.259c-1.384,0-2.504-1.124-2.504-2.504V3.504
 					c0-1.379,1.12-2.504,2.504-2.504h17.534c1.38,0,2.502,1.125,2.502,2.504V21.04z"/>
