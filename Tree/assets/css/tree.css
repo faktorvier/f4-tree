@@ -41,15 +41,9 @@
 }
 
 /* Gutenberg */
-.edit-post-header {
-	margin-left: 260px;
-}
-
-.edit-post-layout__content {
-	left: 260px;
-}
-
-.edit-post-layout__content .components-notice-list {
+.interface-interface-skeleton__header,
+.interface-interface-skeleton__footer,
+.interface-interface-skeleton__content {
 	margin-left: 260px;
 }
 
@@ -59,6 +53,11 @@
 
 .block-editor-page.wp-editor #f4-tree-container {
 	display: block;
+}
+
+.is-fullscreen-mode #f4-tree-container {
+	top: 0;
+	left: 0;
 }
 
 @media screen and (max-width: 960px) {
