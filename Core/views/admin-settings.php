@@ -20,7 +20,7 @@
 <div class="wrap">
 	<div class="f4-options-form">
 		<h1>
-			<?php _e('F4 Post Tree settings', 'f4-tree'); ?>
+			<?php _e('Post Tree Settings', 'f4-tree'); ?>
 		</h1>
 
 		<?php do_action('F4/TREE/Core/before_admin_settings_form'); ?>

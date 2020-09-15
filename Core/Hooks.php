@@ -122,7 +122,7 @@ class Hooks {
 		';
 
 		add_options_page(
-			__('F4 Post Tree settings', 'f4-tree'),
+			__('Post Tree Settings', 'f4-tree'),
 			$submenu_label,
 			'manage_options',
 			'f4-tree-settings',
