@@ -140,13 +140,55 @@ class Helpers {
 		// Icon: Post types
 		if($type === 'post_type') {
 			if($object === 'page') {
-				$icon = array(
-					'html' => '<span class="fancytree-custom-icon-inline fancytree-custom-icon-status-' . $status . '">
-						<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 300 300" xml:space="preserve">
-							<path d="M18.75,0v300H262.5V93.75h-93.75V0H18.75z M187.5,0v75h75L187.5,0z M56.25,75h75v18.75h-75V75z M56.25,131.25H225V150H56.25V131.25z M56.25,187.5H187.5v18.75H56.25V187.5z M56.25,243.75H225v18.75H56.25V243.75z"></path>
-						</svg>
-					</span>'
-				);
+				// WooCommerce pages
+				// @todo: move to plugins hooks
+				if(function_exists('is_woocommerce')) {
+					if(wc_get_page_id('cart') == $id) {
+						// Cart
+						$icon = array(
+							'html' => '<span class="fancytree-custom-icon-inline fancytree-custom-icon-status-' . $status . '">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg>
+							</span>'
+						);
+					} elseif(wc_get_page_id('checkout') == $id) {
+						// Checkout
+						$icon = array(
+							'html' => '<span class="fancytree-custom-icon-inline fancytree-custom-icon-status-' . $status . '">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shopping-bag" class="svg-inline--fa fa-shopping-bag fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M352 160v-32C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128v32H0v272c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V160h-96zm-192-32c0-35.29 28.71-64 64-64s64 28.71 64 64v32H160v-32zm160 120c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zm-192 0c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24z"></path></svg>
+							</span>'
+						);
+					} elseif(wc_get_page_id('shop') == $id) {
+						// Shop
+						$icon = array(
+							'html' => '<span class="fancytree-custom-icon-inline fancytree-custom-icon-status-' . $status . '">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="store" class="svg-inline--fa fa-store fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 616 512"><path fill="currentColor" d="M602 118.6L537.1 15C531.3 5.7 521 0 510 0H106C95 0 84.7 5.7 78.9 15L14 118.6c-33.5 53.5-3.8 127.9 58.8 136.4 4.5.6 9.1.9 13.7.9 29.6 0 55.8-13 73.8-33.1 18 20.1 44.3 33.1 73.8 33.1 29.6 0 55.8-13 73.8-33.1 18 20.1 44.3 33.1 73.8 33.1 29.6 0 55.8-13 73.8-33.1 18.1 20.1 44.3 33.1 73.8 33.1 4.7 0 9.2-.3 13.7-.9 62.8-8.4 92.6-82.8 59-136.4zM529.5 288c-10 0-19.9-1.5-29.5-3.8V384H116v-99.8c-9.6 2.2-19.5 3.8-29.5 3.8-6 0-12.1-.4-18-1.2-5.6-.8-11.1-2.1-16.4-3.6V480c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32V283.2c-5.4 1.6-10.8 2.9-16.4 3.6-6.1.8-12.1 1.2-18.2 1.2z"></path></svg>
+							</span>'
+						);
+					} elseif(wc_get_page_id('myaccount') == $id) {
+						// My Account
+						$icon = array(
+							'html' => '<span class="fancytree-custom-icon-inline fancytree-custom-icon-status-' . $status . '">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-circle" class="svg-inline--fa fa-user-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"></path></svg>
+							</span>'
+						);
+					} else {
+						$icon = array(
+							'html' => '<span class="fancytree-custom-icon-inline fancytree-custom-icon-status-' . $status . '">
+								<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 300 300" xml:space="preserve">
+									<path d="M18.75,0v300H262.5V93.75h-93.75V0H18.75z M187.5,0v75h75L187.5,0z M56.25,75h75v18.75h-75V75z M56.25,131.25H225V150H56.25V131.25z M56.25,187.5H187.5v18.75H56.25V187.5z M56.25,243.75H225v18.75H56.25V243.75z"></path>
+								</svg>
+							</span>'
+						);
+					}
+				} else {
+					$icon = array(
+						'html' => '<span class="fancytree-custom-icon-inline fancytree-custom-icon-status-' . $status . '">
+							<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 300 300" xml:space="preserve">
+								<path d="M18.75,0v300H262.5V93.75h-93.75V0H18.75z M187.5,0v75h75L187.5,0z M56.25,75h75v18.75h-75V75z M56.25,131.25H225V150H56.25V131.25z M56.25,187.5H187.5v18.75H56.25V187.5z M56.25,243.75H225v18.75H56.25V243.75z"></path>
+							</svg>
+						</span>'
+					);
+				}
 			} else {
 				$menu_icon = get_post_type_object($object)->menu_icon;
 				$menu_icon = !$menu_icon ? 'dashicons-admin-post' : $menu_icon;
