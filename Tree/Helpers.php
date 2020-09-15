@@ -196,7 +196,7 @@ class Helpers {
 	public static function get_post_tree_node($post_item, $current_post_id) {
 		// Create default node
 		$node_item = array(
-			'key' => 'post-' . $post_item->ID,
+			'key' => 'post-' . uniqid(),
 			'title' => (empty($post_item->post_title) ? __( '(no title)') : $post_item->post_title),
 			'tooltip' => 'ID: ' . $post_item->ID,
 			'icon' => self::get_node_icon('post_type', $post_item->post_type, $post_item->ID, $post_item->post_status),
@@ -325,6 +325,23 @@ class Helpers {
 
 		$tree_nodes = apply_filters('F4/TREE/Tree/get_tree_nodes_after', $tree_nodes, $post_id, $post_type, $post_type_object, $post_nodes);
 		$tree_nodes = array_values($tree_nodes);
+
+		// Check for duplicate active nodes
+		$has_active_node = false;
+
+		array_walk_recursive($tree_nodes, function(&$v, $k) {
+			global $has_active_node;
+
+			if($k === 'active') {
+				if($has_active_node) {
+					$v = false;
+				}
+
+				if($v) {
+					$has_active_node = true;
+				}
+			}
+		});
 
 		return $tree_nodes;
 	}
