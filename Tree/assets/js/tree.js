@@ -251,6 +251,22 @@ var F4_menutree = {
 		return posts_sorted;
 	};
 
+	F4_menutree.refreshSamplePermalink = function() {
+		jQuery.post(ajaxurl, {
+				action: 'sample-permalink',
+				post_id: jQuery('#post_ID').val(),
+				new_slug: jQuery('#new-post-slug').length ? jQuery('#new-post-slug').val() : jQuery('#editable-post-name').text(),
+				new_title: jQuery('#title').val(),
+				samplepermalinknonce: jQuery('#samplepermalinknonce').val()
+			},
+			function(data) {
+				if(data != '-1') {
+					jQuery('#edit-slug-box').html(data);
+				}
+			}
+		);
+	};
+
 	// Events
 	F4_menutree.onBeforeActivate = function(event, data) {
 		return !data.node.unselectable;
@@ -368,6 +384,7 @@ var F4_menutree = {
 				F4_menutree.pollLastChange = parseInt(success);
 
 				if(F4_menutree.currentPostId != -1) {
+					F4_menutree.refreshSamplePermalink();
 					F4_menutree.startPoll();
 				}
 			}
