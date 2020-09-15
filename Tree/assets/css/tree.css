@@ -41,14 +41,11 @@
 }
 
 /* Gutenberg */
+.interface-interface-skeleton__left-sidebar,
 .interface-interface-skeleton__header,
 .interface-interface-skeleton__footer,
 .interface-interface-skeleton__content {
 	margin-left: 260px;
-}
-
-.block-editor-page #f4-tree-container {
-	display: none;
 }
 
 .block-editor-page.wp-editor #f4-tree-container {
