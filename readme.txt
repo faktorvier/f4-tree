@@ -92,6 +92,12 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 
 == Changelog ==
 
+= 1.0.10 =
+* Add special icons for WooCommerce pages (shop, cart, checkout, my account)
+* Refresh permalink if page is moved while on post edit page
+* Add F4 logo to settings page
+* Better compability with Gutenberg editor
+
 = 1.0.9 =
 * Support WordPress 5.5
 
