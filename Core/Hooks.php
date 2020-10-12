@@ -58,7 +58,7 @@ class Hooks {
 	 * @static
 	 */
 	public static function load_textdomain() {
-		load_plugin_textdomain('f4-tree', false, plugin_basename(F4_TREE_PATH . 'Core/Lang') . '/');
+		load_plugin_textdomain('f4-tree', false, plugin_basename(F4_TREE_PATH . 'languages') . '/');
 	}
 
 	/**
@@ -117,7 +117,7 @@ class Hooks {
 					c-1.384,0-1.773-1.107-0.801-2.078L21.167,28.229z"/>
 			</svg>
 
-			' .  __('Post Tree', 'f4-error-pages') . '
+			' .  __('Post Tree', 'f4-tree') . '
 		</span>
 		';
 

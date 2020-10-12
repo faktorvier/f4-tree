@@ -2,62 +2,94 @@
 
 /*
 Plugin Name: F4 Post Tree
-Plugin URI: https://github.com/faktorvier/f4-tree
+Plugin URI: https://www.faktorvier.ch
 Description: Adds a tree to the pages
-Version: 1.0.9
+Version: 1.1.0
 Author: FAKTOR VIER
 Author URI: https://www.faktorvier.ch
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: f4-tree
-Domain Path: /Core/Lang
+Domain Path: /languages*/
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+define( 'F4_TREE_VERSION', '1.1.0' );
+define( 'F4_TREE_SLUG', 'f4-tree' );
+define( 'F4_TREE_MAIN_FILE', __FILE__ );
+define( 'F4_TREE_BASENAME', plugin_basename( F4_TREE_MAIN_FILE ) );
+define( 'F4_TREE_PATH', dirname( F4_TREE_MAIN_FILE ) . DIRECTORY_SEPARATOR );
+define( 'F4_TREE_URL', plugins_url( '/', F4_TREE_MAIN_FILE ) );
+define( 'F4_TREE_PLUGIN_FILE', basename( F4_TREE_BASENAME ) );
+define( 'F4_TREE_PLUGIN_FILE_PATH', F4_TREE_PATH . F4_TREE_PLUGIN_FILE );
 
-This plugin is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-any later version.
+if ( function_exists( 'ft_tree_fs' ) ) {
+    ft_tree_fs()->set_basename( false, __FILE__ );
+} else {
 
-This plugin is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+    if ( !function_exists( 'ft_tree_fs' ) ) {
+        // Create a helper function for easy SDK access.
+        function ft_tree_fs()
+        {
+            global  $ft_tree_fs ;
 
-You should have received a copy of the GNU General Public License
-along with this plugin. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
-*/
+            if ( !isset( $ft_tree_fs ) ) {
+                // Include Freemius SDK.
+                require_once dirname( __FILE__ ) . '/freemius/start.php';
+                $ft_tree_fs = fs_dynamic_init( array(
+                    'id'             => '6913',
+                    'slug'           => 'f4-tree',
+                    'premium_slug'   => 'f4-tree-pro',
+                    'type'           => 'plugin',
+                    'public_key'     => 'pk_9fe9dc7631d539c9f0edd5ec059f2',
+                    'is_premium'     => false,
+                    'premium_suffix' => 'PRO',
+                    'navigation'     => 'tabs',
+                    'has_addons'     => false,
+                    'has_paid_plans' => false,
+                    'menu'           => array(
+                    'slug'    => 'f4-tree-settings',
+                    'support' => false,
+					'contact' => false,
+                    'parent'  => array(
+                    'slug' => 'options-general.php',
+                ),
+                ),
+                    'is_live'        => true,
+                ) );
+            }
 
-if(!defined('ABSPATH') || defined('F4_TREE_VERSION')) exit;
+            return $ft_tree_fs;
+        }
 
-define('F4_TREE_VERSION', '1.0.9');
-define('F4_TREE_PRO', false);
+        // Init Freemius.
+        ft_tree_fs();
+        // Add plugin icon
+        ft_tree_fs()->add_filter( 'plugin_icon', function () {
+            return F4_TREE_PATH . 'assets/img/f4-tree.jpg';
+        } );
+        // Signal that SDK was initiated.
+        do_action( 'ft_tree_fs_loaded' );
+    }
 
-define('F4_TREE_SLUG', 'f4-tree');
-define('F4_TREE_MAIN_FILE', __FILE__);
-define('F4_TREE_BASENAME', plugin_basename(F4_TREE_MAIN_FILE));
-define('F4_TREE_PATH', dirname(F4_TREE_MAIN_FILE) . DIRECTORY_SEPARATOR);
-define('F4_TREE_URL', plugins_url('/', F4_TREE_MAIN_FILE));
-define('F4_TREE_PLUGIN_FILE', basename(F4_TREE_BASENAME));
-define('F4_TREE_PLUGIN_FILE_PATH', F4_TREE_PATH . F4_TREE_PLUGIN_FILE);
+}
 
-spl_autoload_register(function($class) {
-	$class = ltrim($class, '\\');
-	$ns_prefix = 'F4\\TREE\\';
-
-	if(strpos($class, $ns_prefix) !== 0) return;
-
-	$class_name = str_replace($ns_prefix, '', $class);
-	$class_path = str_replace('\\', DIRECTORY_SEPARATOR, $class_name);
-	$class_file = F4_TREE_PATH . $class_path . '.php';
-
-	if(file_exists($class_file)) {
-		require_once $class_file;
-	}
-});
-
+// Add autoloader
+spl_autoload_register( function ( $class ) {
+    $class = ltrim( $class, '\\' );
+    $ns_prefix = 'F4\\TREE\\';
+    if ( strpos( $class, $ns_prefix ) !== 0 ) {
+        return;
+    }
+    $class_name = str_replace( $ns_prefix, '', $class );
+    $class_path = str_replace( '\\', DIRECTORY_SEPARATOR, $class_name );
+    $class_file = F4_TREE_PATH . $class_path . '.php';
+    if ( file_exists( $class_file ) ) {
+        require_once $class_file;
+    }
+} );
 // Init core
 F4\TREE\Core\Hooks::init();
-
 // Init modules
+//F4\TREE\Update\Hooks::init();
 F4\TREE\Tree\Hooks::init();
-
-?>

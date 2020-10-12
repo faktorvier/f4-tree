@@ -17,11 +17,21 @@
 	}
 </style>
 
-<div class="wrap">
+<div class="wrap fs-section">
 	<div class="f4-options-form">
 		<h1>
 			<?php _e('Post Tree Settings', 'f4-tree'); ?>
 		</h1>
+
+		<!-- Tabs -->
+		<nav class="nav-tab-wrapper">
+			<a
+				href="<?php echo admin_url('options-general.php?page=f4-tree-settings'); ?>"
+				class="nav-tab fs-tab nav-tab-active"
+				>
+				<?php _e('Settings', 'f4-tree'); ?>
+			</a>
+		</nav>
 
 		<?php do_action('F4/TREE/Core/before_admin_settings_form'); ?>
 

@@ -5,7 +5,7 @@ Tags: tree, drag-and-drop, pages, posts, hierarchy, backend, sidebar, treeview
 Requires at least: 4.4.0
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,7 +72,6 @@ If you are interested in this neat fetures, you can write us an [email](mailto:h
 This feature will be avaiable with the PRO version of our plugin.
 
 If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?subject=I'm%20interested%20in%20F4%20Post%20Tree%20PRO!&body=Please%20notify%20me%20if%20the%20PRO%20version%20is%20available!) to get notified when the PRO version will be released.
-
 = When will the PRO version be released? =
 
 We don't know yet, but as soon as possible!
@@ -92,11 +91,12 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 
 == Changelog ==
 
-= 1.0.10 =
+= 1.1.0 =
 * Add special icons for WooCommerce pages (shop, cart, checkout, my account)
 * Refresh permalink if page is moved while on post edit page
 * Add F4 logo to settings page
 * Better compability with Gutenberg editor
+* Add Freemius
 
 = 1.0.9 =
 * Support WordPress 5.5
