@@ -4,7 +4,7 @@
 Plugin Name: F4 Post Tree
 Plugin URI: https://www.faktorvier.ch
 Description: Adds a tree to the pages
-Version: 1.1.4
+Version: 1.1.5
 Author: FAKTOR VIER
 Author URI: https://www.faktorvier.ch
 License: GPLv2
@@ -14,7 +14,7 @@ Domain Path: /languages*/
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-define( 'F4_TREE_VERSION', '1.1.4' );
+define( 'F4_TREE_VERSION', '1.1.5' );
 define( 'F4_TREE_SLUG', 'f4-tree' );
 define( 'F4_TREE_MAIN_FILE', __FILE__ );
 define( 'F4_TREE_BASENAME', plugin_basename( F4_TREE_MAIN_FILE ) );
@@ -46,11 +46,12 @@ if ( function_exists( 'ft_tree_fs' ) ) {
                     'premium_suffix' => 'PRO',
                     'navigation'     => 'tabs',
                     'has_addons'     => false,
-                    'has_paid_plans' => false,
+                    'has_paid_plans' => true,
                     'menu'           => array(
                     'slug'    => 'f4-tree-settings',
                     'support' => false,
                     'contact' => false,
+					'pricing' => false,
                     'parent'  => array(
                     'slug' => 'options-general.php',
                 ),
