@@ -42,24 +42,23 @@
 }
 
 /* Gutenberg */
-.interface-interface-skeleton__left-sidebar,
-.interface-interface-skeleton__header,
-.interface-interface-skeleton__footer,
-.interface-interface-skeleton__content {
-	margin-left: 260px;
-}
+@media screen and (min-width: 961px) {
+	.interface-interface-skeleton,
+	.components-snackbar-list {
+		left: 420px !important;
+	}
 
-.block-editor-page.wp-editor #f4-tree-container {
-	display: block;
-}
+	.block-editor-page.wp-editor #f4-tree-container {
+		display: block;
+	}
 
-.is-fullscreen-mode #f4-tree-container {
-	top: 0;
-	left: 0;
+	.is-fullscreen-mode #f4-tree-container {
+		display: none !important;
+	}
 }
 
 @media screen and (max-width: 960px) {
-	#f4-tree-container{
-		display: none;
+	#f4-tree-container {
+		display: none !important;
 	}
 }
