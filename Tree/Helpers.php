@@ -287,6 +287,7 @@ class Helpers {
 		$args = wp_parse_args(
 			$args,
 			array(
+				'suppress_filters' => false,
 				'nopaging' => true,
 				'orderby' => array(
 					'menu_order' => 'ASC',

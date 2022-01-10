@@ -118,7 +118,7 @@ class Helpers {
 		if(function_exists('pll_get_post_language') && !empty($lang)) {
 			PLL()->curlang = PLL()->model->get_language($lang);
 		} elseif(class_exists('SitePress')) {
-			$sitepress->get_sitepress()->switch_lang($lang, false);
+			$sitepress->switch_lang($lang, false);
 		}
 	}
 
