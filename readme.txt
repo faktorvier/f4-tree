@@ -5,7 +5,7 @@ Tags: tree, drag-and-drop, pages, posts, hierarchy, backend, sidebar, treeview
 Requires at least: 4.4.0
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 2. Hierarchical page tree while editing a page
 
 == Changelog ==
+
+= 1.1.7 =
+* Fix incompatibility with WPML
 
 = 1.1.6 =
 * Fix tree sidebar position on mobile and in block editor
