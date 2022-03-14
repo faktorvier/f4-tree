@@ -35,14 +35,28 @@
 	position: relative;
 }
 
+/* WPBakery */
+.vc_fullscreen #f4-tree-container,
+.vc_editor #f4-tree-container {
+	display: none !important;
+}
+
+/* Block editor */
 .focus-on #f4-tree-container,
 .mce-fullscreen #adminmenumain,
 .mce-fullscreen #f4-tree-container {
 	display: none;
 }
 
-/* Gutenberg */
 @media screen and (min-width: 961px) {
+	/* WPBakery */
+	body:not(.vc_fullscreen) .vc_subnav-fixed {
+		left: 420px !important;
+		width: calc(100% - 420px) !important;
+		padding-left: 0 !important;
+	}
+
+	/* Block editor */
 	.interface-interface-skeleton,
 	.components-snackbar-list {
 		left: 420px !important;
