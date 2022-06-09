@@ -3,9 +3,9 @@ Contributors: faktorvier
 Donate link: https://www.faktorvier.ch/donate/
 Tags: tree, drag-and-drop, pages, posts, hierarchy, backend, sidebar, treeview
 Requires at least: 4.4.0
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.9
+Stable tag: 1.1.10
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,10 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 2. Hierarchical page tree while editing a page
 
 == Changelog ==
+
+= 1.1.10 =
+* Better compability with WPBakery editor
+* Support WordPress 6.0
 
 = 1.1.9 =
 * Update freemius sdk to version 2.4.3
