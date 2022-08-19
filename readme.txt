@@ -5,7 +5,7 @@ Tags: tree, drag-and-drop, pages, posts, hierarchy, backend, sidebar, treeview
 Requires at least: 4.4.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.10
+Stable tag: 1.1.11
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ This plugin adds a neat and easy to use sidebar tree view to your posts and page
 
 == Description ==
 
-This plugin adds a neat and easy to use **sidebar tree view** to your **posts and/or pages backend**.
+[F4 Post Tree](https://www.f4dev.ch) adds a neat and easy to use **sidebar tree view** to your **posts and/or pages backend**.
 
 Once activated, your posts/pages will be displayed **hierarchically** in the tree sidebar.
 
@@ -90,6 +90,9 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 2. Hierarchical page tree while editing a page
 
 == Changelog ==
+
+= 1.1.11 =
+* Update www.f4dev.ch links
 
 = 1.1.10 =
 * Better compability with WPBakery editor
