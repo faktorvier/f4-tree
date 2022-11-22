@@ -92,5 +92,4 @@ spl_autoload_register( function ( $class ) {
 // Init core
 F4\TREE\Core\Hooks::init();
 // Init modules
-//F4\TREE\Update\Hooks::init();
 F4\TREE\Tree\Hooks::init();
