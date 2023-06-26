@@ -301,6 +301,10 @@ var F4_menutree = {
 	};
 
 	F4_menutree.onDragStart = function(node, data) {
+		if(node.extraClasses.includes('node-disable-dnd')) {
+			return false;
+		}
+
 		F4_menutree.stopPoll();
 
 		return true;
