@@ -4,7 +4,7 @@
 Plugin Name: F4 Post Tree
 Plugin URI: https://www.f4dev.ch
 Description: Adds a tree to the pages
-Version: 1.1.14
+Version: 1.1.15
 Author: FAKTOR VIER
 Author URI: https://www.f4dev.ch
 License: GPLv2
@@ -14,7 +14,7 @@ Domain Path: /languages*/
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-define( 'F4_TREE_VERSION', '1.1.14' );
+define( 'F4_TREE_VERSION', '1.1.15' );
 define( 'F4_TREE_SLUG', 'f4-tree' );
 define( 'F4_TREE_MAIN_FILE', __FILE__ );
 define( 'F4_TREE_BASENAME', plugin_basename( F4_TREE_MAIN_FILE ) );
