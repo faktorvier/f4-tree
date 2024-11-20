@@ -10,8 +10,7 @@ namespace F4\TREE\Core;
  * @since 1.0.0
  * @package F4\TREE\Core
  */
-class Hooks
-{
+class Hooks {
     /**
      * Initialize the hooks
      *
@@ -19,13 +18,12 @@ class Hooks
      * @access public
      * @static
      */
-    public static function init()
-    {
+    public static function init() {
         add_action( 'init', __NAMESPACE__ . '\\Hooks::core_loaded' );
         add_action( 'init', __NAMESPACE__ . '\\Hooks::load_textdomain' );
         add_action( 'F4/TREE/Core/set_constants', __NAMESPACE__ . '\\Hooks::set_default_constants', 98 );
     }
-    
+
     /**
      * Fires once the core module is loaded
      *
@@ -33,8 +31,7 @@ class Hooks
      * @access public
      * @static
      */
-    public static function core_loaded()
-    {
+    public static function core_loaded() {
         do_action( 'F4/TREE/Core/set_constants' );
         do_action( 'F4/TREE/Core/loaded' );
         add_action( 'admin_head', __NAMESPACE__ . '\\Hooks::add_admin_styles' );
@@ -42,7 +39,7 @@ class Hooks
         add_action( 'admin_menu', __NAMESPACE__ . '\\Hooks::register_options_page', 99 );
         add_filter( 'plugin_action_links_' . F4_TREE_BASENAME, __NAMESPACE__ . '\\Hooks::add_settings_link_to_plugin_list' );
     }
-    
+
     /**
      * Sets the module default constants
      *
@@ -50,10 +47,9 @@ class Hooks
      * @access public
      * @static
      */
-    public static function set_default_constants()
-    {
+    public static function set_default_constants() {
     }
-    
+
     /**
      * Load plugin textdomain
      *
@@ -61,11 +57,10 @@ class Hooks
      * @access public
      * @static
      */
-    public static function load_textdomain()
-    {
+    public static function load_textdomain() {
         load_plugin_textdomain( 'f4-tree', false, plugin_basename( F4_TREE_PATH . 'languages' ) . '/' );
     }
-    
+
     /**
      * Add admin styles
      *
@@ -73,9 +68,8 @@ class Hooks
      * @access public
      * @static
      */
-    public static function add_admin_styles()
-    {
-        echo  '<style>
+    public static function add_admin_styles() {
+        echo '<style>
 				.' . F4_TREE_SLUG . '-submenu-item {
 				display: flex;
 				align-items: center;
@@ -89,9 +83,9 @@ class Hooks
 				margin-right: 0.4em;
 				fill: currentColor;
 			}
-		</style>' ;
+		</style>';
     }
-    
+
     /**
      * Register options page
      *
@@ -99,8 +93,7 @@ class Hooks
      * @access public
      * @static
      */
-    public static function register_options_page()
-    {
+    public static function register_options_page() {
         $submenu_label = '
 		<span class="' . F4_TREE_SLUG . '-submenu-item">
 			<svg class="f4-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"width="75px" height="100px" viewBox="0 0 75 100">
@@ -133,11 +126,11 @@ class Hooks
             'manage_options',
             'f4-tree-settings',
             function () {
-            include F4_TREE_PATH . 'Core/views/admin-settings.php';
-        }
+                include F4_TREE_PATH . 'Core/views/admin-settings.php';
+            }
         );
     }
-    
+
     /**
      * Register settings for options page
      *
@@ -145,18 +138,17 @@ class Hooks
      * @access public
      * @static
      */
-    public static function register_settings()
-    {
+    public static function register_settings() {
         register_setting( 'f4-tree-settings', 'f4-tree-settings', array(
             'default' => array(
-            'post-types' => array(
-            'page' => '1',
-            'post' => '1',
-        ),
-        ),
+                'post-types' => array(
+                    'page' => '1',
+                    'post' => '1',
+                ),
+            ),
         ) );
     }
-    
+
     /**
      * Add settings link to plugin list
      *
@@ -164,8 +156,7 @@ class Hooks
      * @access public
      * @static
      */
-    public static function add_settings_link_to_plugin_list( $links )
-    {
+    public static function add_settings_link_to_plugin_list( $links ) {
         array_push( $links, '<a href="' . admin_url( 'options-general.php?page=f4-tree-settings' ) . '">' . __( 'Settings' ) . '</a>' );
         return $links;
     }

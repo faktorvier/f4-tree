@@ -16,17 +16,20 @@ _e( 'Enable tree for post types', 'f4-tree' );
 foreach ( $post_types_public as $post_type_name => $post_type_object ) {
     ?>
 	<?php 
-    if ( !in_array( $post_type_name, array( 'post', 'page' ) ) ) {
+    if ( !in_array( $post_type_name, array('post', 'page') ) ) {
+        continue;
+    }
+    if ( in_array( $post_type_name, F4_TREE_IGNORE_POST_TYPES ) ) {
         continue;
     }
     ?>
 
 	<input
 		name="f4-tree-settings[post-types][<?php 
-    echo  $post_type_name ;
+    echo $post_type_name;
     ?>]"
 		id="f4-tree-settings-post-types-<?php 
-    echo  $post_type_name ;
+    echo $post_type_name;
     ?>"
 		type="checkbox"
 		value="1"
@@ -36,12 +39,12 @@ foreach ( $post_types_public as $post_type_name => $post_type_object ) {
 	/>
 
 	<label for="f4-tree-settings-post-types-<?php 
-    echo  $post_type_name ;
+    echo $post_type_name;
     ?>">
 		<strong><?php 
-    echo  $post_type_object->label ;
+    echo $post_type_object->label;
     ?></strong> <i>(<?php 
-    echo  $post_type_name ;
+    echo $post_type_name;
     ?>)</i>
 		<br />
 	</label>
