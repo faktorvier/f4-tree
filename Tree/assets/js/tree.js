@@ -367,6 +367,7 @@ var F4_menutree = {
 
 		// Get sorted posts
 		var posts_sorted = F4_menutree.getSortedPageNodes();
+		var posts_sorted_json = JSON.stringify(posts_sorted);
 
 		// Get sorted posts
 		var menus_sorted = F4_menutree.getSortedMenuNodes();
@@ -380,7 +381,7 @@ var F4_menutree = {
 			async: true,
 			data: {
 				action: 'f4_tree_move_post',
-				posts_sorted: posts_sorted,
+				posts_sorted: posts_sorted_json,
 				menus_sorted: menus_sorted,
 				lang: F4_menutree.currentLanguage
 			},

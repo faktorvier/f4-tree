@@ -41,6 +41,27 @@ class Hooks {
 		if(!defined('F4_TREE_JS_URL')) {
 			define('F4_TREE_JS_URL', F4_TREE_URL . 'Tree/assets/js/');
 		}
+
+		if(!defined('F4_TREE_IGNORE_POST_TYPES')) {
+			define('F4_TREE_IGNORE_POST_TYPES', [
+				'attachment',
+				'wp_block',
+				'wp_navigation',
+				'acf-taxonomy',
+				'acf-post-type',
+				'acf-ui-options-page',
+				'acf-field-group',
+				'skuld_content',
+				'skuld_fieldgroup',
+				'skuld_layout',
+				'skuld_snippet',
+				'shop_order',
+				'shop_coupon',
+				'wc_reminder_email',
+				'br_product_filter',
+				'br_filters_group'
+			]);
+		}
 	}
 
 	/**
@@ -174,7 +195,12 @@ class Hooks {
 	public static function ajax_move_tree_post() {
 		global $wpdb;
 
-		$posts_sorted = isset($_POST['posts_sorted']) ? $_POST['posts_sorted'] : array();
+		$posts_sorted = json_decode(stripslashes($_POST['posts_sorted'] ?? '[]'), true);  // Edited Code
+
+		if(!is_array($posts_sorted)) {
+			$posts_sorted = [];
+		}
+
 		$posts_sorted = apply_filters('F4/TREE/Tree/move_tree_post_get_sorted_post_ids', $posts_sorted);
 		$lang = isset($_REQUEST['lang']) ? $_REQUEST['lang'] : '';
 
