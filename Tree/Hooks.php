@@ -104,12 +104,16 @@ class Hooks {
 		// Styles
 		wp_enqueue_style(
 			'f4-tree',
-			F4_TREE_CSS_URL . 'tree.css'
+			F4_TREE_CSS_URL . 'tree.css',
+			[],
+			F4_TREE_VERSION
 		);
 
 		wp_enqueue_style(
 			'fancytree-custom-theme',
-			F4_TREE_CSS_URL . 'fancytree.css'
+			F4_TREE_CSS_URL . 'fancytree.css',
+			[],
+			F4_TREE_VERSION
 		);
 
 		// Scripts
@@ -117,7 +121,7 @@ class Hooks {
 			'jquery-fancytree',
 			F4_TREE_JS_URL . 'jquery.fancytree.min.js',
 			array('jquery', 'jquery-effects-core', 'jquery-effects-blind'),
-			false,
+			F4_TREE_VERSION,
 			true
 		);
 
@@ -125,7 +129,7 @@ class Hooks {
 			'jquery-fancytree-dnd',
 			F4_TREE_JS_URL . 'jquery.fancytree.dnd.min.js',
 			array('jquery-fancytree', 'jquery-ui-draggable', 'jquery-ui-droppable', 'jquery-ui-position'),
-			false,
+			F4_TREE_VERSION,
 			true
 		);
 
@@ -133,7 +137,7 @@ class Hooks {
 			'f4-tree',
 			F4_TREE_JS_URL . 'tree.js',
 			array('jquery-fancytree', 'jquery-fancytree-dnd'),
-			false,
+			F4_TREE_VERSION,
 			true
 		);
 
@@ -172,15 +176,15 @@ class Hooks {
 	 * @static
 	 */
 	public static function ajax_load_tree() {
-		$post_id = isset($_REQUEST['post_id']) ? $_REQUEST['post_id'] : 0;
-		$post_type = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'page';
-		$lang = isset($_REQUEST['lang']) ? $_REQUEST['lang'] : '';
+		$post_id = isset($_REQUEST['post_id']) ? intval($_REQUEST['post_id']) : 0;
+		$post_type = isset($_REQUEST['post_type']) ? sanitize_title($_REQUEST['post_type']) : 'page';
+		$lang = isset($_REQUEST['lang']) ? sanitize_title($_REQUEST['lang']) : '';
 
 		Core::maybe_change_current_language($lang);
 
 		$treeview = Tree::get_tree($post_id, $post_type);
 		$treeview = apply_filters('F4/TREE/Tree/ajax_load_tree', $treeview);
-		echo json_encode($treeview);
+		echo wp_json_encode($treeview);
 
 		die();
 	}
@@ -195,14 +199,14 @@ class Hooks {
 	public static function ajax_move_tree_post() {
 		global $wpdb;
 
-		$posts_sorted = json_decode(stripslashes($_POST['posts_sorted'] ?? '[]'), true);  // Edited Code
+		$posts_sorted = json_decode(stripslashes($_REQUEST['posts_sorted'] ?? '[]'), true);
 
 		if(!is_array($posts_sorted)) {
 			$posts_sorted = [];
 		}
 
 		$posts_sorted = apply_filters('F4/TREE/Tree/move_tree_post_get_sorted_post_ids', $posts_sorted);
-		$lang = isset($_REQUEST['lang']) ? $_REQUEST['lang'] : '';
+		$lang = isset($_REQUEST['lang']) ? sanitize_title($_REQUEST['lang']) : '';
 
 		Core::maybe_change_current_language($lang);
 
@@ -237,10 +241,10 @@ class Hooks {
 		session_write_close();
 		ignore_user_abort(true);
 
-		$last_request_timestamp = isset($_REQUEST['timestamp']) ? (int)$_REQUEST['timestamp'] : null;
-		$post_id = isset($_REQUEST['post_id']) ? $_REQUEST['post_id'] : -1;
-		$post_type = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'page';
-		$lang = isset($_REQUEST['lang']) ? $_REQUEST['lang'] : '';
+		$last_request_timestamp = isset($_REQUEST['timestamp']) ? intval($_REQUEST['timestamp']) : null;
+		$post_id = isset($_REQUEST['post_id']) ? intval($_REQUEST['post_id']) : -1;
+		$post_type = isset($_REQUEST['post_type']) ? sanitize_title($_REQUEST['post_type']) : 'page';
+		$lang = isset($_REQUEST['lang']) ? sanitize_title($_REQUEST['lang']) : '';
 
 		Core::maybe_change_current_language($lang);
 
@@ -270,7 +274,7 @@ class Hooks {
 					'timestamp' => $last_change_timestamp
 				);
 
-				$responseJSON = json_encode($response);
+				$responseJSON = wp_json_encode($response);
 
 				echo $responseJSON;
 

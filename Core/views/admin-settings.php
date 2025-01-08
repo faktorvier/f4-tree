@@ -20,16 +20,16 @@
 <div class="wrap fs-section">
 	<div class="f4-options-form">
 		<h1>
-			<?php _e('Post Tree Settings', 'f4-tree'); ?>
+			<?php esc_html_e('Post Tree Settings', 'f4-tree'); ?>
 		</h1>
 
 		<!-- Tabs -->
 		<nav class="nav-tab-wrapper">
 			<a
-				href="<?php echo admin_url('options-general.php?page=f4-tree-settings'); ?>"
+				href="<?php echo esc_url(admin_url('options-general.php?page=f4-tree-settings')); ?>"
 				class="nav-tab fs-tab nav-tab-active"
 				>
-				<?php _e('Settings', 'f4-tree'); ?>
+				<?php esc_html_e('Settings', 'f4-tree'); ?>
 			</a>
 		</nav>
 
@@ -46,7 +46,7 @@
 
 	<div class="f4-options-sidebar">
 		<a class="f4-options-sidebar-link" href="https://www.f4dev.ch" target="_blank">
-			<img src="<?php echo F4_TREE_URL . 'assets/img/made-with-love-by-f4.png'; ?>" alt="F4" />
+			<img src="<?php echo esc_url(F4_TREE_URL) . 'assets/img/made-with-love-by-f4.png'; ?>" alt="F4" />
 		</a>
 	</div>
 </div>

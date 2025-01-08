@@ -70,13 +70,13 @@ class Hooks {
      */
     public static function add_admin_styles() {
         echo '<style>
-				.' . F4_TREE_SLUG . '-submenu-item {
+				.' . esc_html( F4_TREE_SLUG ) . '-submenu-item {
 				display: flex;
 				align-items: center;
 				white-space: nowrap;
 			}
 
-			.' . F4_TREE_SLUG . '-submenu-item .f4-icon {
+			.' . esc_html( F4_TREE_SLUG ) . '-submenu-item .f4-icon {
 				flex: 0 0 auto;
 				width: 1em;
 				height: 1em;

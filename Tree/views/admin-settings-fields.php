@@ -8,7 +8,7 @@ $post_types_enabled = \F4\TREE\Core\Helpers::get_settings( 'post-types' );
 
 <h2>
 	<?php 
-_e( 'Enable tree for post types', 'f4-tree' );
+esc_html_e( 'Enable tree for post types', 'f4-tree' );
 ?>:
 </h2>
 
@@ -26,10 +26,10 @@ foreach ( $post_types_public as $post_type_name => $post_type_object ) {
 
 	<input
 		name="f4-tree-settings[post-types][<?php 
-    echo $post_type_name;
+    echo esc_attr( $post_type_name );
     ?>]"
 		id="f4-tree-settings-post-types-<?php 
-    echo $post_type_name;
+    echo esc_attr( $post_type_name );
     ?>"
 		type="checkbox"
 		value="1"
@@ -39,12 +39,12 @@ foreach ( $post_types_public as $post_type_name => $post_type_object ) {
 	/>
 
 	<label for="f4-tree-settings-post-types-<?php 
-    echo $post_type_name;
+    echo esc_attr( $post_type_name );
     ?>">
 		<strong><?php 
-    echo $post_type_object->label;
+    echo esc_attr( $post_type_object->label );
     ?></strong> <i>(<?php 
-    echo $post_type_name;
+    echo esc_html( $post_type_name );
     ?>)</i>
 		<br />
 	</label>
