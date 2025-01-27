@@ -5,7 +5,7 @@ Tags: tree, treeview, drag-and-drop, sidebar, hierarchy
 Requires at least: 4.4.0
 Tested up to: 6.7
 Requires PHP: 5.6
-Stable tag: 1.1.19
+Stable tag: 1.1.20
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 2. Hierarchical page tree while editing a page
 
 == Changelog ==
+
+= 1.1.20 =
+* Update freemius sdk to version 2.11.0
 
 = 1.1.19 =
 * Fixed a XSS vulnerability
