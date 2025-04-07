@@ -10,22 +10,22 @@ namespace F4\TREE\Core;
  * @since 1.0.0
  * @package F4\TREE\Core
  */
-class Hooks {
+class Hooks extends AbstractHooks {
     /**
-     * Initialize the hooks
+     * Initialize the hooks.
      *
      * @since 1.0.0
      * @access public
      * @static
      */
     public static function init() {
-        add_action( 'init', __NAMESPACE__ . '\\Hooks::core_loaded' );
-        add_action( 'init', __NAMESPACE__ . '\\Hooks::load_textdomain' );
-        add_action( 'F4/TREE/Core/set_constants', __NAMESPACE__ . '\\Hooks::set_default_constants', 98 );
+        self::add_action( 'init', 'core_loaded' );
+        self::add_action( 'init', 'load_textdomain' );
+        self::add_action( 'F4/TREE/Core/set_constants', 'set_default_constants', 98 );
     }
 
     /**
-     * Fires once the core module is loaded
+     * Fires once the core module is loaded.
      *
      * @since 1.0.0
      * @access public
@@ -34,14 +34,14 @@ class Hooks {
     public static function core_loaded() {
         do_action( 'F4/TREE/Core/set_constants' );
         do_action( 'F4/TREE/Core/loaded' );
-        add_action( 'admin_head', __NAMESPACE__ . '\\Hooks::add_admin_styles' );
-        add_action( 'admin_init', __NAMESPACE__ . '\\Hooks::register_settings' );
-        add_action( 'admin_menu', __NAMESPACE__ . '\\Hooks::register_options_page', 99 );
-        add_filter( 'plugin_action_links_' . F4_TREE_BASENAME, __NAMESPACE__ . '\\Hooks::add_settings_link_to_plugin_list' );
+        self::add_action( 'admin_head', 'add_admin_styles' );
+        self::add_action( 'admin_init', 'register_settings' );
+        self::add_action( 'admin_menu', 'register_options_page', 99 );
+        self::add_filter( 'plugin_action_links_' . F4_TREE_BASENAME, 'add_settings_link_to_plugin_list' );
     }
 
     /**
-     * Sets the module default constants
+     * Sets the module default constants.
      *
      * @since 1.0.0
      * @access public
@@ -51,7 +51,7 @@ class Hooks {
     }
 
     /**
-     * Load plugin textdomain
+     * Load plugin textdomain.
      *
      * @since 1.0.0
      * @access public
@@ -62,7 +62,7 @@ class Hooks {
     }
 
     /**
-     * Add admin styles
+     * Add admin styles.
      *
      * @since 1.0.0
      * @access public
@@ -87,7 +87,7 @@ class Hooks {
     }
 
     /**
-     * Register options page
+     * Register options page.
      *
      * @since 1.0.0
      * @access public
@@ -126,7 +126,7 @@ class Hooks {
             'manage_options',
             'f4-tree-settings',
             function () {
-                include F4_TREE_PATH . 'Core/views/admin-settings.php';
+                include F4_TREE_PATH . 'modules/Core/views/admin-settings.php';
             }
         );
     }
