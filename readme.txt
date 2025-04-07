@@ -2,10 +2,10 @@
 Contributors: faktorvier
 Donate link: https://www.faktorvier.ch/donate/
 Tags: tree, treeview, drag-and-drop, sidebar, hierarchy
-Requires at least: 4.4.0
+Requires at least: 6.0.0
 Tested up to: 6.7
-Requires PHP: 5.6
-Stable tag: 1.1.20
+Requires PHP: 8.0
+Stable tag: 2.0.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,31 @@ If you are interested, you can write us an [email](mailto:hallo@faktorvier.ch?su
 2. Hierarchical page tree while editing a page
 
 == Changelog ==
+
+= 2.0.3 =
+* Fix move action for trees with a lot of nodes
+
+= 2.0.2 =
+* Make post types with orderby = menu_order sortable
+* Fix pages order in tree
+
+= 2.0.1 =
+* Update translations
+
+= 2.0.0 =
+* Complete icons, style and javascript rework
+* Save resized tree width on current user
+* Better expanded nodes handling, so the tree stays expanded like expected
+* Only poll for changes if browser tab is active
+* Show better icons for posts
+* Show special icon for password protected posts
+* Disable sorting for non-hierarchically posts
+* Migration from fancytree to wunderbaum
+* Update required PHP version to 8.0.0
+* Various performance and security optimisations
+
+= 1.2.0 =
+* Replace long poll logic with normal polling interval
 
 = 1.1.20 =
 * Update freemius sdk to version 2.11.0
