@@ -4,7 +4,7 @@
 Plugin Name: F4 Post Tree
 Plugin URI: https://www.f4dev.ch
 Description: Adds a tree to the pages
-Version: 2.0.4
+Version: 2.0.5
 Author: FAKTOR VIER
 Author URI: https://www.f4dev.ch
 License: GPLv2
@@ -14,7 +14,7 @@ Domain Path: /languages*/
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-define( 'F4_TREE_VERSION', '2.0.4' );
+define( 'F4_TREE_VERSION', '2.0.5' );
 define( 'F4_TREE_SLUG', 'f4-tree' );
 define( 'F4_TREE_MAIN_FILE', __FILE__ );
 define( 'F4_TREE_BASENAME', plugin_basename( F4_TREE_MAIN_FILE ) );
@@ -33,17 +33,17 @@ if ( function_exists( 'ft_tree_fs' ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
                 $ft_tree_fs = fs_dynamic_init( array(
-                    'id'             => '6913',
-                    'slug'           => 'f4-tree',
-                    'premium_slug'   => 'f4-tree-pro',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_9fe9dc7631d539c9f0edd5ec059f2',
-                    'is_premium'     => false,
-                    'premium_suffix' => 'PRO',
-                    'navigation'     => 'tabs',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'menu'           => array(
+                    'id'               => '6913',
+                    'slug'             => 'f4-tree',
+                    'premium_slug'     => 'f4-tree-pro',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_9fe9dc7631d539c9f0edd5ec059f2',
+                    'is_premium'       => false,
+                    'premium_suffix'   => 'PRO',
+                    'navigation'       => 'tabs',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'menu'             => array(
                         'slug'    => 'f4-tree-settings',
                         'support' => false,
                         'contact' => false,
@@ -52,7 +52,8 @@ if ( function_exists( 'ft_tree_fs' ) ) {
                             'slug' => 'options-general.php',
                         ),
                     ),
-                    'is_live'        => true,
+                    'is_live'          => true,
+                    'is_org_compliant' => true,
                 ) );
             }
             return $ft_tree_fs;
