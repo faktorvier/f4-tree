@@ -219,6 +219,8 @@ class Hooks extends \F4\TREE\Core\AbstractHooks {
 	public static function ajax_move_tree_post() {
 		global $wpdb;
 
+		check_ajax_referer('f4_tree_ajax_action', 'nonce');
+
 		$post_id = isset($_REQUEST['post_id']) ? intval($_REQUEST['post_id']) : 0;
 		$post_type = isset($_REQUEST['post_type']) ? sanitize_title($_REQUEST['post_type']) : 'page';
 		$lang = isset($_REQUEST['lang']) ? sanitize_title($_REQUEST['lang']) : '';
@@ -230,6 +232,16 @@ class Hooks extends \F4\TREE\Core\AbstractHooks {
 
 		$posts_sorted = apply_filters('F4/TREE/Tree/move_tree_post_get_sorted_post_ids', $posts_sorted);
 		$lang = isset($_REQUEST['lang']) ? sanitize_title($_REQUEST['lang']) : '';
+
+		$post_type_obj = get_post_type_object($post_type);
+
+		if(!$post_type_obj || empty($posts_sorted)) {
+			wp_send_json_error();
+		}
+
+		if(!current_user_can($post_type_obj->cap->edit_posts)) {
+			wp_send_json_error();
+		}
 
 		Core::maybe_change_current_language(
 			$lang

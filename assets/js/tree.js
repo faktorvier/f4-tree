@@ -410,6 +410,7 @@ class Tree {
 			cache: false,
 			data: {
 				action: 'f4_tree_move_post',
+				nonce: this.tree?.getAttribute('data-tree-action-nonce') ?? '',
 				post_id: F4TREE.postId,
 				post_type: F4TREE.postType,
 				lang: F4TREE.lang,
